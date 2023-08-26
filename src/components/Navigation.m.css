@@ -1,14 +1,16 @@
-/* Navbar */
+/* Desktop Version */
 
-.navbar {
-    background-color: #222222;
+.navigation {
+    background-color: #202020;
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
+    border: 0;
 }
-.navbar a {
+.navigation a {
         color: white;
         text-decoration: none;
 }
@@ -34,76 +36,20 @@
     padding-right: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Mobile version */
 
 @media (max-width: 500px) {
 
-.navbar {
+.navigation  {
     display: flex;
     flex-direction: row;
     height: 30px;
     width: 480px;
+    margin: 0;
+    border: 0;
+    /* background-color: #202020; */
+    background-color: #d37b1d;
+
 }
 .nav-img{
     width: 155px;
@@ -111,8 +57,6 @@
 }
 
 .signin-container{
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 5px;
@@ -125,12 +69,16 @@
     font-size: 20px;
     width: 5px;
     padding-right: 55px;
-
+    padding-top: 6px;
+    display: flex;
+    flex-direction: row;
 }
 .vertical-divider{
-    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    font-size: 27px;
     width: 5px;
     padding-right: 8px;
+    padding-top: 3px;
 }
-
 }

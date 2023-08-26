@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <main>{children}</main>
-      {/* Add your footer or any other common elements here */}
+
     </div>
   );
 };

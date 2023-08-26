@@ -1,0 +1,135 @@
+body{
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+/* Mobile Version */
+
+@media (max-width: 500px) {
+    body {
+        display: flex;
+    }
+    .product-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 1600px;
+        max-width: 500px;
+        padding-left: 90px;
+        gap: 1rem;
+
+    }
+
+    .product-box {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 1rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .product img {
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        max-width: 200px;
+        min-width: 200px;
+        object-fit: cover;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+    .product h3,
+    .product p{
+        color: #505050;
+        margin: 0;
+    }
+    .product span {
+        font-weight: bold;
+        color: rgb(181, 233, 65);
+    }
+    /* .search-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: 500px;
+    } */
+    .line-homepage {
+        margin-right: 50px !important;
+        margin-left: 50px !important;
+        background-color: #383535 !important;
+        width:360px;
+        }
+    }
+
+
+
+
+
+/* Desktop Version */
+
+
+.product-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    width: 1600px;
+    min-width: 242px;
+    gap: 1rem;
+}
+
+.product-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.product img {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+    overflow: hidden;
+}
+.product h3,
+.product p{
+    color: #505050;
+    margin: 0;
+}
+.product span {
+    font-weight: bold;
+    color: #b5e941;
+}
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button{
+    background-color:rgb(181, 233, 65);;
+}
+
+.line-homepage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 180px 180px 80px;
+    height: 1px;
+    background-color: #383535;
+    margin-top: 50px;
+    }
+
+
+
