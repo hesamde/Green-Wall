@@ -15,7 +15,6 @@ return (
             value={searchInput}
             placeholder="Search..."
             onChange={handleInputChange}/>
-
     </div>
 );
 }

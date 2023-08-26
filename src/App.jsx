@@ -1,21 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
-import Signinpage from './pages/Signinpage';
-import SignupPage from './pages/SignupPage';
-import Searchbar from './components/Searchbar';
+import Signin from './pages/Signin';
 import Navigation from './components/Navigation';
+import Signup from './pages/Signup';
 
 
-function App() {
+const App = () => {
 
   return (
     <div className="App">
       <Navigation/>
-      <Searchbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/signin" element={<Signinpage />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Signin" element={<Signin />} />
       </Routes>
     </div>
   );
