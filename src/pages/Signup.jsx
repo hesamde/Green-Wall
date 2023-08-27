@@ -1,38 +1,33 @@
-import React from 'react'
-import Layout from '../components/Layout';
+import React, { useState } from 'react';
 import './Signup.css';
 
-
-
 const Signup = () => {
-return (
-    <Layout>
-            <div class="container flex">
-                <div className="signup-page flex">
-                    <div className="text">
-                    <h1>Green Wall</h1>
-                    <p>Sell your Book to the world</p>
-                    <p>around you on your City.</p>
-                </div>
-                <form action="#">
-                    <input type="email" placeholder="Email" required />
-                    <input type="password" placeholder="Password" required />
-                    <div className="link">
-                        <button type="submit" className="login">Login</button>
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    return (
+        <div>
+            <button onClick={openModal}>Open Sign Up</button>
+            {isModalOpen && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={closeModal}>&times;</span>
+                        <h2>Sign Up</h2>
+                        <form>
+                            {/* Form fields go here */}
+                        </form>
                     </div>
-                    <hr />
-                    <div className="button">
-                        <button type="button">Create new account</button>
-                    </div>
-                </form>
                 </div>
-            </div>
-    </Layout>
-);
+            )}
+        </div>
+    );
 };
 
-
-export default Signup
-
-
-
+export default Signup;
