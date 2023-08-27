@@ -49,13 +49,6 @@ body{
         font-weight: bold;
         color: #b5e941;
     }
-    /* .search-bar {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        max-width: 500px;
-    } */
     .line-homepage {
         margin-right: 50px !important;
         margin-left: 50px !important;
@@ -63,19 +56,11 @@ body{
         width:360px;
         }
     }
-
-
-
-
-
 /* Desktop Version */
-
-
 .product-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
     width: 1600px;
     min-width: 242px;
     gap: 1rem;
@@ -117,7 +102,7 @@ body{
 }
 
 .search-bar button{
-    background-color:rgb(181, 233, 65);;
+    background-color:#b5e941;
 }
 
 .line-homepage {
