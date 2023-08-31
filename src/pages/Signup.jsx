@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Signup.css';
-import { useNavigate  } from 'react-router-dom';
+// import { useNavigate  } from 'react-router-dom';
 // import authMethods from "../services/auth.service"
 
 
@@ -8,7 +8,7 @@ const Signup = ({ onClose }) => {
 
     const closeModal = () => {onClose();};
     const [user, setUser] = useState({name : '', email: '',password: ''});
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleChange = (e) => { //event to use to get input as property
         const name = e.target.name;
