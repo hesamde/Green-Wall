@@ -13,16 +13,16 @@ const Signin = () => {
   return (
     <Layout>
       {showSignup && <div className='background-modal'></div>}
-      <div className="container flex">
+      <form className="container flex">
         <div className="signin-page flex">
           <div className="text">
             <h1>Green Wall</h1>
-            <p>Sell your Book to the world</p>
-            <p>around you on your City.</p>
+            <p>Sell your Book </p>
+            <p> around you.</p>
           </div>
           <div className="form">
-          <h2>Good to see you again</h2>
-          <br />
+          <h2 className='gtsa'>Good to see you again</h2>
+            <label></label>
             <input type="email" placeholder="Email" required />
             <input type="password" placeholder="Password" required />
             <div className="link">
@@ -34,7 +34,7 @@ const Signin = () => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
       {showSignup && <Signup onClose={closeSignupModal} />}
     </Layout>
   );

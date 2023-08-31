@@ -7,7 +7,7 @@ import './Navigation.m.css';
 const Navigation = () => {
     return (
     <nav className="navigation">
-        <div><img className="nav-img" src="/Asset/Logo/GreenWall.jpg" alt="Green Wall Logo" /></div>
+    <a href="/"><div><img className="nav-img" src="/Asset/Logo/GreenWall.jpg" alt="Green Wall Logo" /></div></a>
         <div className="signin-container">
         <Link to={"/Signin"} className="signin-navigation-link ">
             <svg xmlns="http://www.w3.org/2000/svg"

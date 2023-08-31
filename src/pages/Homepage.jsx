@@ -1,140 +1,66 @@
-import React from 'react';
-import Layout from '../components/Layout'; // Adjust the import path
+import React ,{useEffect , useState} from 'react';
+import Layout from '../components/Layout';
+import { Link } from 'react-router-dom';
 import './Homepage.css';
 
 
 const HomePage = () => {
+    const [allProducts, setAllProducts] = useState([]);
+    useEffect(() => {
+    // fetch getAllProduct
+
+    const response = [
+        {
+        id: "100",
+        name: "Kirche",
+        price: 99,
+        location: "Berlin",
+        image: "./asset/Products/1.jpg",
+        },
+        {
+            id: "101",
+            name: "TodoList",
+            price: 899,
+            location: "Berlin",
+            image: "./asset/Products/2.jpg",
+        },
+        {
+        id: "103",
+        name: "Abbas",
+        price: 1200,
+        location: "Cologne",
+        image: "./asset/Products/3.jpg",
+        },
+    ];
+    setAllProducts(response);
+    setAllProducts(response);
+    }, []);
+
 return (
-
     <Layout>
-        <ul className="line-homepage"></ul>
-    <div className="product-container ">
+    <ul className="line-homepage"></ul>
+        <div className="product-container ">
         <div className="product-box">
-            <div className="product">
-                <img src="./asset/Products/1.jpg" alt="Product"/>
-                <span>$16.99</span>
-                <h3>Kirchen</h3>
-                <p>Düsseldorf</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/2.jpg" alt="Product"/>
-                <span>$11</span>
-                <h3>Product Name</h3>
-                <p>MönchenGladbach</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/3.jpg" alt="Product"/>
-                <span>$22</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/4.jpg" alt="Product"/>
-                <span>$24.99</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/5.jpg" alt="Product"/>
-                <span>$13.99</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/6.jpg" alt="Product"/>
-                <span>$14.50</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/7.jpg" alt="Product"/>
-                <span>$5.59</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/8.jpg" alt="Product"/>
-                <span>$18.99</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/9.jpg" alt="Product"/>
-                <span>$29.99</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/10.jpg" alt="Product"/>
-                <span>$28.99</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/11.jpg" alt="Product"/>
-                <span>$1.99</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/12.jpg" alt="Product"/>
-                <span>$1</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/13.jpg" alt="Product"/>
-                <span>$5.50</span>
-                <h3>Product Name</h3>
-                <p>Location</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/14.jpg" alt="Product"/>
-                <span>$25.99</span>
-                <h3>Pwer of Ignored Skills</h3>
-                <p>Duisburg</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/15.jpg" alt="Product"/>
-                <span>$17.99</span>
-                <h3>Surrounded by idiots</h3>
-                <p>Essen</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/16.jpg" alt="Product"/>
-                <span>$10</span>
-                <h3>5.203 Things to do</h3>
-                <p>Düsseldorf</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/17.jpg" alt="Product"/>
-                <span>$12</span>
-                <h3>Eat The Frog</h3>
-                <p>Leverkusen</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/18.jpg" alt="Product"/>
-                <span>$19.99</span>
-                <h3>Just keep buying</h3>
-                <p>Köln</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/19.jpg" alt="Product"/>
-                <span>$8.99</span>
-                <h3>Make yor bed</h3>
-                <p>Wilich</p>
-            </div>
-            <div className="product">
-                <img src="./asset/Products/20.jpg" alt="Product"/>
-                <span>$27.99</span>
-                <h3>The Subtle art of not giving a Fuck</h3>
-                <p>Aachen</p>
-            </div>
+            {allProducts &&
+            allProducts.length > 0 &&
+            allProducts.map((product, index) => (
+                <Link
+                key={index}
+                to={`product/${product.id}`}
+                style={{ textDecoration: "none" }}
+                >
+                <div className="product">
+                    <img src="./asset/Products/1.jpg" alt="Product" />
+                    <span>{product.price}</span>
+                    <h3>{product.name}</h3>
+                    <p>{product.location}</p>
+                </div>
+                </Link>
+            ))}
         </div>
-    </div>
-
+        </div>
     </Layout>
-  );
+    );
 };
 
 export default HomePage;

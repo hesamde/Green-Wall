@@ -51,7 +51,6 @@
     0 8px 16px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 200%;
-
     }
 
     .form input {
@@ -132,6 +131,12 @@
         font-size: 1.063rem;
         font-weight: 600;
         transition: 0.2s ease;
+    }
+    .gtsa {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 50px;
     }
     @media (max-width: 900px) {
     .signin-page {

@@ -1,0 +1,50 @@
+body {
+  margin: 0 auto;
+  background-image: linear-gradient(#C1DFC4, #DEECDD);
+}
+
+.homePageContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ovalBackground {
+  width: 60vw;
+  height: 50vh;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.homeLeftSection {
+  margin-left: 16px;
+}
+
+.homeRightSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 8px;
+  margin-bottom: 20px;
+}
+
+.profileImage img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.editImageButton {
+  width: 150px;
+  font-family: 'Lucida Sans', sans-serif;
+  background-color: #638165;
+  border-color: #638165;
+  border-radius: 2px;
+  margin-top: 12px;
+  cursor: pointer;
+}
