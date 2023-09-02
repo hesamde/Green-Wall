@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import './Signup.css';
-// import { useNavigate  } from 'react-router-dom';
-// import authMethods from "../services/auth.service"
+import { useNavigate , Link } from 'react-router-dom';
+import authMethods from "../service/auth.service"
 
 
 const Signup = ({ onClose }) => {
-
     const closeModal = () => {onClose();};
-    const [user, setUser] = useState({name : '', email: '',password: ''});
-    // const navigate = useNavigate()
+    const [user, setUser] = useState({name : '', email: '', password: ''});
+    const navigate = useNavigate()
 
     const handleChange = (e) => { //event to use to get input as property
         const name = e.target.name;
@@ -20,9 +19,9 @@ const Signup = ({ onClose }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        // authMethods.Signup(user)
-        //     .then(() => navigate('/login'))
-        //     .catch(err => console.error(err))
+        authMethods.Signup(user)
+            .then(() => navigate('/'))
+            .catch(err => console.error(err))
     }
 
 
@@ -34,7 +33,7 @@ const Signup = ({ onClose }) => {
                 <h2>Creat your account</h2>
                 <span className="close" onClick={closeModal}>&times;</span>
                 <form onSubmit={handleSubmit} className='form'>
-                    <div type="file" name="photo" accept="image/*" class="file-upload" />
+                    {/* <div type="file" name="photo" accept="image/*" class="file-upload" /> */}
                     <br />
                     <label>Name</label>
                     <input
@@ -65,7 +64,7 @@ const Signup = ({ onClose }) => {
                     <button type="submit" className="signup-button">Sign Up</button>
                     </div>
                     <br />
-                    <a href="/Signin">Already have an account? Sign in.</a>
+                    <Link to="/signin">Already have an account? Sign in.</Link>
                 </form>
             </div>
         </div>

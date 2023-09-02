@@ -9,12 +9,14 @@ const CreateProduct = () => {
     const [price, setPrice] = useState("");
     const [productName, setProductName] = useState("");
     const [Location, setLocation] = useState("");
+    const [photo, setPhoto] = useState("");
+
 
     const navigate = useNavigate();
-
     const handlePrice = (e) => setPrice(e.target.value);
     const handleProductName = (e) => setProductName(e.target.value);
     const handleLocation = (e) => setLocation(e.target.value);
+    const handlePhoto = (e) => setPhoto(e.target.value);
 
     const handleSubmit = async (e) => {
       try {
@@ -24,21 +26,22 @@ const CreateProduct = () => {
             price,
             productName,
             Location,
+            photo,
             };
 
             // await axios.post(`${apiURL}/new`, CreateProduct);
-            await axios.post(`$/new`, CreateProduct);
+            await axios.post(`http://localhost:5005/product/create`, CreateProduct);
 
             setPrice("")
             setProductName("")
             setLocation("")
-
+            setPhoto("")
             navigate("/");
+
           } catch (err) {
           return <p>No Book found</p>;
           }
         };
-
   return (
     <>
       <Layout />
@@ -70,7 +73,15 @@ const CreateProduct = () => {
               placeholder="Enter location"
               onChange={handleLocation}
             />
-          <button className="create-button" type="submit">Create</button>
+            <label>Photo</label>
+            <input
+              type="file"
+              name="photo"
+              value={photo}
+              placeholder="Enter photo"
+              onChange={handlePhoto}
+            />
+          <button className="create-button" type="submit">Create </button>
         </form>
       </div>
     </>

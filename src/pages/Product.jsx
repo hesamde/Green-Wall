@@ -50,6 +50,7 @@ const Product = () => {
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
     const [comment, setComment] = useState("");
+    const [img, setImg] = useState("");
 
     useEffect(() => {
 
@@ -62,26 +63,25 @@ const Product = () => {
         setPrice(mockProduct.price);
         setName(mockProduct.name);
         setLocation(mockProduct.location);
+        setImg(mockProduct.img)
     }, []);
 
     return (
-        <div className="product-page">
-            <div className="product-info">
-                <img className="product-image" src="product-image.jpg" alt="Product" />
-                <h1 className="product-name">{name}</h1>
-                <p className="product-location">{location}</p>
-            </div>
-            <div className="product-info">
-                <h2 className="product-price">Price:</h2>
-                <p>{price}</p>
-                <h2 className="product-comments">Comments:</h2>
-                <textarea
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                />
-                <button className="product-comments-button">Submit Comment</button>
+        <div className="product-page-container">
+        <div className="product-image">
+            <div src="book-cover-subtle-art.jpg" alt="Product Image">{img}</div>
+        </div>
+        <div className="product-details">
+            <h1 className="product-title">{name}</h1>
+            <h2 className="product-price">Price: {price}</h2>
+            <p className="product-location">{location}</p>
+            <div className="comments">
+                <h2>Comments:</h2>
+                <textarea className="comment-textarea"value={comment}onChange={(e) => setComment(e.target.value)}></textarea>
+                <button className="comment-button">Submit Comment</button>
             </div>
         </div>
+    </div>
     );
 };
 

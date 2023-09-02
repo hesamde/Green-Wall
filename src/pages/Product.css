@@ -1,60 +1,54 @@
-.product-page {
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+.product-page-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center; /* Vertically aligns content */
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    margin: 200px auto;
 }
-
 .product-image {
-    width: 50%;
-    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    margin-right: 200px;
 }
-
-.product-info {
-    width: 50%;
-    padding: 10px;
+.product-details {
+    flex: 1;
 }
-
-.product-name {
-    font-size: 20px;
-    font-weight: bold;
+.product-title {
+    font-size: 24px;
+    margin: 0;
 }
-
-.product-description {
-    font-size: 16px;
-    line-height: 1.5;
-}
-
 .product-price {
     font-size: 18px;
-    font-weight: bold;
-    margin-top: 500px;
+    margin: 10px 0;
 }
-
 .product-location {
-    font-size: 16px;
+    margin: 10px 0;
 }
-
-.product-comments {
-    margin-top: 500px;
+.comments {
+    margin-top: 20px;
 }
-
-.product-comments h2 {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.product-comments textarea {
+.comment-textarea {
     width: 100%;
-    height: 100px;
+    padding: 10px;
     border: 1px solid #ccc;
-    padding: 10px;
+    border-radius: 5px;
+    resize: vertical;
 }
-
-.product-comments button {
-    background-color: #007bff;
-    color: white;
+.comment-button {
+    background-color: #b5e941;
+    color: #fff;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
 }

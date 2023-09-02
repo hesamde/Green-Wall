@@ -1,6 +1,7 @@
 import React ,{useEffect , useState} from 'react';
-import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
+import Layout from '../components/Layout';
+import Searchbar from '../components/Searchbar'
 import './Homepage.css';
 
 
@@ -37,7 +38,8 @@ const HomePage = () => {
     }, []);
 
 return (
-    <Layout>
+        <Layout>
+            <Searchbar />
     <ul className="line-homepage"></ul>
         <div className="product-container ">
         <div className="product-box">
