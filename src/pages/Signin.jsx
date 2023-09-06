@@ -26,7 +26,7 @@ const Signin = () => {
     const handleSubmit = (e) => {
       e.preventDefault()
 
-      authMethods.Sigin(user)
+      authMethods.Signin(user)
       .then((tokenObject) =>{
 
         storeToken(tokenObject.authToken)
@@ -44,8 +44,7 @@ const Signin = () => {
         <div className="signin-page flex">
           <div className="text">
             <h1>Green Wall</h1>
-            <p>Sell your Book </p>
-            <p> around you.</p>
+            <p>Sell your Book around you. </p>
           </div>
           <div className="form">
           <h2 className='gtsa'>Good to see you again</h2>

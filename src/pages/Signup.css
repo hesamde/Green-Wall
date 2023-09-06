@@ -12,17 +12,12 @@
   z-index: 9999;
     justify-content: center;
     align-items: center;
-    left: 57%;
-    top: 195px;
+    left: 30%;
+    top: 150px;
     position: absolute;
     display: flex;
   }
-  .form {
-    background-color: #9edb1a;;
-    padding: 90px;
-    border-radius: 10px;
-    position: relative;
-  }
+
   .layout {
     position: relative;
   }
@@ -44,10 +39,6 @@
     width: 100%;
     height: 100%;
 }
-.sign-up-text{
-  display: flex;
-  justify-content: center;
-}
 .file-upload {
   display: flex;
   flex-direction: row;
@@ -59,8 +50,12 @@
   border-radius: 100%;
   border: 1px solid #ccc;
   padding: 10px;
-
   cursor: pointer;
 }
 
-
+.container {
+  padding: 0 15px;
+  min-height: 100vh;
+  justify-content: center;
+  background: #f0f2f5;
+  }

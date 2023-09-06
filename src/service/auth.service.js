@@ -6,11 +6,15 @@ const api = axios.create({
   // withCredentials: true // => you might need this option if using cookies and sessions
 });
 
-const Signup = ({ name, email, password }) => {
-  return api
-    .post("/auth/signup", { name, email, password })
-    .then((response) => response.data)
-    .catch((err) => console.error(err));
+// const Signup = ({ name, email, password }) => {
+//   return api
+//     .post("/auth/signup", { name, email, password })
+//     .then((response) => response.data)
+//     .catch((err) => console.error(err));
+// };
+
+const Signup = async ({ name, email, password }) => {
+  return await api.post("/auth/signup", { name, email, password });
 };
 
 const Signin = ({ email, password }) => {
@@ -19,13 +23,6 @@ const Signin = ({ email, password }) => {
     .then((response) => response.data)
     .catch((err) => console.error(err));
 };
-
-// const Signin = ({ email, password }) => {
-//   return api
-//     .post("/auth/signin", { email, password })
-//     .then((response) => response.data)
-//     .catch((err) => console.error(err));
-// };
 
 const verifyToken = (storedToken) => {
   return api

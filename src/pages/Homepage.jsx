@@ -1,68 +1,50 @@
-import React ,{useEffect , useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import Searchbar from '../components/Searchbar'
+import Searchbar from '../components/Searchbar';
+import CreateProduct from '../pages/CreateProduct';
 import './Homepage.css';
+import axios from 'axios'
 
-
-const HomePage = () => {
+const HomePage =  () => {
     const [allProducts, setAllProducts] = useState([]);
-    useEffect(() => {
-    // fetch getAllProduct
+    const  getfromdb = async () =>{
+        try {
+            const getAllProduct = await axios.get(`${process.env.REACT_APP_API_URL}/product`)
+            console.log(getAllProduct)
+            setAllProducts(getAllProduct.data)
 
-    const response = [
-        {
-        id: "100",
-        name: "Kirche",
-        price: 99,
-        location: "Berlin",
-        image: "./asset/Products/1.jpg",
-        },
-        {
-            id: "101",
-            name: "TodoList",
-            price: 899,
-            location: "Berlin",
-            image: "./asset/Products/2.jpg",
-        },
-        {
-        id: "103",
-        name: "Abbas",
-        price: 1200,
-        location: "Cologne",
-        image: "./asset/Products/3.jpg",
-        },
-    ];
-    setAllProducts(response);
-    setAllProducts(response);
+        } catch (error) {
+            console.log(error);
+        }
+
+
+    }
+    useEffect(() => {
+        getfromdb()
     }, []);
 
-return (
+    return (
         <Layout>
-            <Searchbar />
-    <ul className="line-homepage"></ul>
+        <Searchbar />
+        < Link to="/createproduct"><button>Creat Product</button></Link>
+        <ul className="line-homepage"></ul>
         <div className="product-container ">
-        <div className="product-box">
-            {allProducts &&
-            allProducts.length > 0 &&
-            allProducts.map((product, index) => (
-                <Link
-                key={index}
-                to={`product/${product.id}`}
-                style={{ textDecoration: "none" }}
-                >
+            <div className="product-box">
+            {allProducts && allProducts.length > 0 && allProducts.map((product, index) => (
+                <Link to={`product/${product._id}`} key={index} style={{ textDecoration: "none" }}>
                 <div className="product">
-                    <img src="./asset/Products/1.jpg" alt="Product" />
+                    <img src={product.photo} alt="Product" />
                     <span>{product.price}</span>
                     <h3>{product.name}</h3>
                     <p>{product.location}</p>
                 </div>
                 </Link>
             ))}
+            </div>
         </div>
-        </div>
-    </Layout>
+        </Layout>
     );
-};
+    };
 
 export default HomePage;

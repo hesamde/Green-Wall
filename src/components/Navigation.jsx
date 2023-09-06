@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Navigation.m.css';
+import Image from 'react-bootstrap/Image'
 
 
 
 const Navigation = () => {
     return (
     <nav className="navigation">
-    <a href="/"><div><img className="nav-img" src="/Asset/Logo/GreenWall.jpg" alt="Green Wall Logo" /></div></a>
+    <a href="/"><div><img className="nav-img" src="assets/Logo/GreenWall.jpg" alt="Green Wall Logo" /></div></a>
         <div className="signin-container">
         <Link to={"/Signin"} className="signin-navigation-link ">
+        <Image src="..." style={{ borderRadius: "50%", height: "50px", width: "50px" }} />
             <svg xmlns="http://www.w3.org/2000/svg"
                 className="signin-icon "
                 viewBox="0 0 32 32">

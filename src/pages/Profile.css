@@ -1,29 +1,35 @@
-body {
-  margin: 0 auto;
-
-}
-
-.homePageContainer {
+.homePageContainer, .signUpContainer, .loginContainer{
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .ovalBackground {
   width: 60vw;
   height: 50vh;
   display: flex;
+
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.homeLeftSection {
+.ovalBackground div {
   margin-left: 16px;
 }
 
-.homeRightSection {
+.signinContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.signUpForm, .loginForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeRightSection, .signUpRightSection, .loginRightSection {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,19 +38,19 @@ body {
   margin-bottom: 20px;
 }
 
-.profileImage img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+.updateImageForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-left: 48px; */
 }
 
-.editImageButton {
-  width: 150px;
-  font-family: 'Lucida Sans', sans-serif;
-  background-color: #638165;
-  border-color: #638165;
-  border-radius: 2px;
-  margin-top: 12px;
-  cursor: pointer;
+.field {
+  color: lightgrey;
+}
+
+.logOutButton {
+  color: #D0021B;
+  outline: none;
+  border: 1px solid transparent;
 }

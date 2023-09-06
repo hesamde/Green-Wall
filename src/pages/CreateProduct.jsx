@@ -8,34 +8,39 @@ const CreateProduct = () => {
 
     const [price, setPrice] = useState("");
     const [productName, setProductName] = useState("");
-    const [Location, setLocation] = useState("");
-    const [photo, setPhoto] = useState("");
+    const [location, setLocation] = useState("");
+    const [image, setImage] = useState(null);
 
 
     const navigate = useNavigate();
     const handlePrice = (e) => setPrice(e.target.value);
     const handleProductName = (e) => setProductName(e.target.value);
     const handleLocation = (e) => setLocation(e.target.value);
-    const handlePhoto = (e) => setPhoto(e.target.value);
+    const handleImageChange = (e) => {setImage(e.target.files[0]);
+    };
 
     const handleSubmit = async (e) => {
       try {
           e.preventDefault();
 
-          const CreateProduct = {
-            price,
-            productName,
-            Location,
-            photo,
-            };
+            const formData = new FormData();
+            formData.append("image", image);
+            formData.append("price", price);
+            formData.append("productName", productName);
+            formData.append("location", location);
 
             // await axios.post(`${apiURL}/new`, CreateProduct);
-            await axios.post(`http://localhost:5005/product/create`, CreateProduct);
+            await axios.post(`http://localhost:5005/product/create`, formData,{
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+            );
 
             setPrice("")
             setProductName("")
             setLocation("")
-            setPhoto("")
+            setImage(null)
             navigate("/");
 
           } catch (err) {
@@ -45,7 +50,7 @@ const CreateProduct = () => {
   return (
     <>
       <Layout />
-      <div className="create-product-container">
+      <div className="create-product-con">
         <form className="product-form" onSubmit={handleSubmit}>
           <label>Price</label>
             <input
@@ -69,17 +74,17 @@ const CreateProduct = () => {
             <input
               type="text"
               name="location"
-              value={Location}
+              value={location}
               placeholder="Enter location"
               onChange={handleLocation}
             />
             <label>Photo</label>
             <input
               type="file"
-              name="photo"
-              value={photo}
+              accept="image/png, image/jpeg"
+              name="image"
               placeholder="Enter photo"
-              onChange={handlePhoto}
+              onChange={handleImageChange}
             />
           <button className="create-button" type="submit">Create </button>
         </form>

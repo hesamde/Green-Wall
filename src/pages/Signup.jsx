@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
-import './Signup.css';
 import { useNavigate , Link } from 'react-router-dom';
 import authMethods from "../service/auth.service"
+import './Signup.css';
+
+
+
 
 
 const Signup = ({ onClose }) => {
     const closeModal = () => {onClose();};
     const [user, setUser] = useState({name : '', email: '', password: ''});
+    const [errorMsg,setErrorMsg] = useState("")
     const navigate = useNavigate()
 
     const handleChange = (e) => { //event to use to get input as property
@@ -20,20 +24,25 @@ const Signup = ({ onClose }) => {
         e.preventDefault()
 
         authMethods.Signup(user)
-            .then(() => navigate('/'))
-            .catch(err => console.error(err))
+            .then ((abbas) => {
+                console.log("infoooo")
+                console.log(abbas);
+                navigate('/')
+            })
+            .catch(err => {
+                console.log("khata darad")
+                setErrorMsg(err.response.data.message)
+                console.info(err)
+            })
     }
-
-
 
 
     return (
         <div className="modal">
-            <div className="modal-content">
-                <h2>Creat your account</h2>
-                <span className="close" onClick={closeModal}>&times;</span>
                 <form onSubmit={handleSubmit} className='form'>
-                    {/* <div type="file" name="photo" accept="image/*" class="file-upload" /> */}
+                <span className="close" onClick={closeModal}>&times;</span>
+                    <h2>Creat your account</h2>
+                    {errorMsg !== "" && <p>{errorMsg}</p>}
                     <br />
                     <label>Name</label>
                     <input
@@ -66,7 +75,6 @@ const Signup = ({ onClose }) => {
                     <br />
                     <Link to="/signin">Already have an account? Sign in.</Link>
                 </form>
-            </div>
         </div>
     );
 };

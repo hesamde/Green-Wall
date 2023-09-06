@@ -23,8 +23,7 @@ const EditProduct = ({ product, onSave }) => {
                 <div className="edit-page flex">
                 <div className="text">
                     <h1>Green Wall</h1>
-                    <p>Sell your Book </p>
-                    <p> around you.</p>
+                    <p>Sell your Book around you. </p>
                     </div>
                     <div className="form">
                     <h2 className='h2-text'>Edit Product</h2>
@@ -38,8 +37,8 @@ const EditProduct = ({ product, onSave }) => {
                     <label htmlFor="photo">Photo:</label>
                     <input type="file"name="photo"value={editedProduct.photo}onChange={handleInputChange}/>
                     <hr />
-                <div className ="button-edit-page">
-                <button className ="button-edit-page" type="submit">Save Changes</button>
+                <div className ="button">
+                <button className ="button" type="submit">Save Changes</button>
                 </div>
             </div>
         </div>

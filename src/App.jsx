@@ -4,10 +4,10 @@ import Navigation from './components/Navigation';
 import Homepage from './pages/Homepage';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
-import Product from './pages/Product';
 import CreateProduct from './pages/CreateProduct';
 import Profile from './pages/Profile'
 import EditPage  from './pages/EditPage'
+import Product from './pages/Product';
 
 const App = () => {
   return (
