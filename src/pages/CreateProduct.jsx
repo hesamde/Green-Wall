@@ -11,8 +11,8 @@ const CreateProduct = () => {
     const [location, setLocation] = useState("");
     const [image, setImage] = useState(null);
 
-
     const navigate = useNavigate();
+
     const handlePrice = (e) => setPrice(e.target.value);
     const handleProductName = (e) => setProductName(e.target.value);
     const handleLocation = (e) => setLocation(e.target.value);
@@ -24,10 +24,10 @@ const CreateProduct = () => {
           e.preventDefault();
 
             const formData = new FormData();
-            formData.append("image", image);
             formData.append("price", price);
             formData.append("productName", productName);
             formData.append("location", location);
+            formData.append("image", image);
 
             // await axios.post(`${apiURL}/new`, CreateProduct);
             await axios.post(`http://localhost:5005/product/create`, formData,{
@@ -81,7 +81,7 @@ const CreateProduct = () => {
             <label>Photo</label>
             <input
               type="file"
-              accept="image/png, image/jpeg"
+              // accept="image/png, image/jpeg"
               name="image"
               placeholder="Enter photo"
               onChange={handleImageChange}

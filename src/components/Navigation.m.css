@@ -28,7 +28,7 @@
     font-size: 30px;
     padding-right: 5px;
 }
-.vertical-divider{
+.divider{
     font-size: 28px;
     width: 5px;
     padding-right: 10px;
@@ -51,10 +51,6 @@
     margin: 0;
     border: 0;
 }
-.nav-img{
-    width: 300px;
-    margin: 0;
-}
 
 .signin-container{
     justify-content: center;
@@ -64,16 +60,17 @@
 .signin-icon{
     width:35px;
     margin-left: 55px;
+    margin-top: 10px;
 }
 .signin-text{
     display: flex;
     flex-direction: row;
     font-size: 20px;
     width: 5px;
-    padding-right: 55px;
-    padding-top: 6px;
+    padding-top: 8px;
+
 }
-.vertical-divider{
+.divider{
     display: flex;
     flex-direction: row;
     font-size: 27px;
@@ -82,6 +79,17 @@
 .menu-m-de{
     display: flex;
     flex-direction: row;
-    padding-right: 80px;
+    padding-right: 60px;
+}
+.homepage-user-name{
+    background-color: rebeccapurple;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding-top: 12px;
+}
+.nav-img{
+    width:200px ;
 }
 }

@@ -1,49 +1,8 @@
-// import React, { useState, useEffect } from "react";
-// import './Product.css'
-
-// const Product = () => {
-//     const [price, setPrice] = useState(0);
-//     const [name, setName] = useState("");
-//     const [location, setLocation] = useState("");
-//     const [comment, setComment] = useState("");
-
-//     useEffect(() => {
-//         const fetchedProduct = {
-//             price: "",
-//             name: "",
-//             location: "",
-//             comment:""
-//         };
-
-//         setPrice(fetchedProduct.price);
-//         setName(fetchedProduct.name);
-//         setLocation(fetchedProduct.location);
-//     }, []);
-
-//     return (
-//         <div className="product-page">
-//             <div className="product-info">
-//                 <img className="product-image" src="product-image.jpg" alt="Product Image" />
-//                 <h1 className="product-name">{name}</h1>
-//                 <p className="product-location">{location}</p>
-//             </div>
-//             <div className="product-info">
-//                 <h2 className="product-price">Price:</h2>
-//                 <p>{price}</p>
-//                 <h2 className="product-comments">Comments:</h2>
-//                 <textarea
-//                     value={comment}
-//                     onChange={(e) => setComment(e.target.value)}
-//                 />
-//                 <button className="product-comments-button">Submit Comment</button>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Product
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import './Product.css'
+
 
 const Product = () => {
     const [price, setPrice] = useState(0);
@@ -51,25 +10,30 @@ const Product = () => {
     const [location, setLocation] = useState("");
     const [comment, setComment] = useState("");
     const [img, setImg] = useState("");
+    const { id } = useParams();
 
     useEffect(() => {
 
-        const mockProduct = {
-            price: 50,
-            name: "Example Product",
-            location: "Example Location",
-        };
+        axios.get(`${process.env.REACT_APP_API_URL}/product/${id}`)
+        .then((response) => {
+            setPrice(response.data.price);
+            setName(response.data.name);
+            setLocation(response.data.location);
+            setImg(response.data.photo)
+            console.log(response);
 
-        setPrice(mockProduct.price);
-        setName(mockProduct.name);
-        setLocation(mockProduct.location);
-        setImg(mockProduct.img)
+
+        })
+        .catch(err => console.log(err));
+        // console.log(`${process.env.REACT_APP_API_URL}/product/${id}`);
+
+
     }, []);
 
     return (
         <div className="product-page-container">
         <div className="product-image">
-            <div src="book-cover-subtle-art.jpg" alt="Product Image">{img}</div>
+            <img src={img} alt="Product Image" />
         </div>
         <div className="product-details">
             <h1 className="product-title">{name}</h1>

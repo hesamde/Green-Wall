@@ -18,9 +18,7 @@ body{
         max-width: 500px;
         padding-left: 90px;
         gap: 1rem;
-
     }
-
     .product-box {
         display: flex;
         flex-wrap: wrap;

@@ -33,7 +33,10 @@ const Signin = () => {
         authenticateUser()
         navigate("/")
     })
-    .catch("/")
+    .catch(err =>{
+      console.log("bahraaaaam");
+      console.log(err);
+    } )
     }
 
 

@@ -47,14 +47,13 @@ const Profile = props => {
             <h1>Profile</h1>
             <p className="field">Name</p>
             <p>{user?.name} </p>
-
             <p className="field">Email</p>
             <p>{user?.email}</p>
-
-            <button className="logOutButton" onClick={logOutUser}>Log out</button>
+            <button className="logOutButton"
+             onClick={logOutUser}>Log out</button>
         </div>}
-        {!isLoggedIn && <div>
 
+        {!isLoggedIn && <div>
                 <h1>Green Wall Profile</h1>
                 <p>Create your Profile Now</p>
             </div>}
