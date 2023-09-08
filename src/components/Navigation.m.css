@@ -1,6 +1,5 @@
 .navigation {
     background-color: #202020;
-    color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -16,17 +15,14 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
-
 }
-
 .signin-text{
     font-size: 30px;
 }
-
 .signin-icon {
     height: 40px;
     fill: #ffffff;
-    margin-right: 15px;
+    margin-right: 20px;
     margin-top:10px ;
 }
 .signin-divider{
@@ -41,4 +37,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.signin-text:hover{
+  color: orange;
+}
+.signin-icon:hover {
+    fill: orange;
 }
