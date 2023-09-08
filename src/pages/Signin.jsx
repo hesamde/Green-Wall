@@ -34,7 +34,6 @@ const Signin = () => {
         navigate("/")
     })
     .catch(err =>{
-      console.log("bahraaaaam");
       console.log(err);
     } )
     }

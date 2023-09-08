@@ -1,33 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Searchbar from '../components/Searchbar';
-import CreateProduct from '../pages/CreateProduct';
+import {AuthContext} from "../context/auth.context"
 import './Homepage.css';
-import axios from 'axios'
 
 const HomePage =  () => {
     const [allProducts, setAllProducts] = useState([]);
-    const  getfromdb = async () =>{
-        try {
-            const getAllProduct = await axios.get(`${process.env.REACT_APP_API_URL}/product`)
-            console.log(getAllProduct)
-            setAllProducts(getAllProduct.data)
+    const { isLoggedIn } = useContext(AuthContext);
 
-        } catch (error) {
-            console.log(error);
-        }
-
-
-    }
     useEffect(() => {
-        getfromdb()
-    }, []);
+        console.log(allProducts);
+    }, [allProducts]);
 
     return (
         <Layout>
-        <Searchbar />
-        < Link to="/createproduct"><button>Creat Product</button></Link>
+        <Searchbar setAllProducts={setAllProducts} />
+        {isLoggedIn && <Link to="/createproduct"><button>Creat Product</button></Link>}
         <ul className="line-homepage"></ul>
         <div className="product-container ">
             <div className="product-box">

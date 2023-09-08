@@ -52,3 +52,21 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+.edit-button {
+    background-color: #E86A0B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delet-button {
+    background-color: #E86A0B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+}

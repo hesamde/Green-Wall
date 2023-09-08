@@ -24,18 +24,14 @@ const Signup = ({ onClose }) => {
         e.preventDefault()
 
         authMethods.Signup(user)
-            .then ((abbas) => {
-                console.log("infoooo")
-                console.log(abbas);
+            .then ((data) => {
                 navigate('/')
             })
             .catch(err => {
-                console.log("khata darad")
                 setErrorMsg(err.response.data.message)
                 console.info(err)
             })
     }
-
 
     return (
         <div className="modal">

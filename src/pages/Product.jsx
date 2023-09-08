@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect , useContext} from "react";
+import { useParams , Link } from "react-router-dom";
+import {AuthContext} from "../context/auth.context"
+import axios from "axios"
 import './Product.css'
 
 
 const Product = () => {
+    const { isLoggedIn } = useContext(AuthContext);
     const [price, setPrice] = useState(0);
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
@@ -14,33 +16,34 @@ const Product = () => {
 
     useEffect(() => {
 
-        axios.get(`${process.env.REACT_APP_API_URL}/product/${id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/product/details/${id}`)
         .then((response) => {
             setPrice(response.data.price);
-            setName(response.data.name);
+            setName(response.data.productName);
             setLocation(response.data.location);
             setImg(response.data.photo)
-            console.log(response);
-
-
+            console.log(response.data);
         })
         .catch(err => console.log(err));
-        // console.log(`${process.env.REACT_APP_API_URL}/product/${id}`);
-
-
-    }, []);
+    }, [id]);
 
     return (
         <div className="product-page-container">
         <div className="product-image">
-            <img src={img} alt="Product Image" />
+            <img src={img} alt={name} />
         </div>
         <div className="product-details">
-            <h1 className="product-title">{name}</h1>
-            <h2 className="product-price">Price: {price}</h2>
-            <p className="product-location">{location}</p>
+        {isLoggedIn &&  <button className="delet-button">Delet Product</button>}
+        <br />
+        <br />
+        {isLoggedIn && <Link to="/Editpage"> <button className="edit-button">Edit Product</button></Link>}
+        <br />
+        <br />
+            <h1 className="product-title"> Book Name : {name}</h1>
+            <p className="product-price"> Price: {price}</p>
+            <p className="product-location"> Location : {location}</p>
             <div className="comments">
-                <h2>Comments:</h2>
+                <h3>Comments:</h3>
                 <textarea className="comment-textarea"value={comment}onChange={(e) => setComment(e.target.value)}></textarea>
                 <button className="comment-button">Submit Comment</button>
             </div>

@@ -1,41 +1,36 @@
-import React, { useState, useEffect } from 'react';//searchbar-step-16
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "./Searchbar.css"
 
-const Searchbar = () => {
-    const [searchInput, setSearchInput] = useState('');
-    const [products, setProducts] = useState([]);
+const Searchbar = ({setAllProducts}) => {
+    const [name, setName] = useState('');
 
-    useEffect(() => {
+    useEffect(()=> {
+        console.log("useEffect");
+        axios.get(`${process.env.REACT_APP_API_URL}/product/name/${name}`)
 
-        fetch('/api/products')
-            .then((response) => response.json())
-            .then((data) => setProducts(data))
-            .catch((error) => console.error(error));
-        }, []);
+        .then((response) => {
+            console.log(response.data);
+            setAllProducts(response.data)
+        })
+        .catch((error) => console.error(error));
+    },[name])
 
-        const handleChange = (e) => {setSearchInput(e.target.value);};
+    const handleChange = (e) => {
+        e.preventDefault()
+        setName(e.target.value);
+    };
 
-        const filteredProducts = products
-            .filter((product) => product.name
-            .toLowerCase()
-            .includes(searchInput
-            .toLowerCase()
-            ));
-
-
-return (
-    <div className='input-container'>
-        <input
-            className='search-b'
-            type="search"
-            value={searchInput}
-            placeholder="Search..."
-            onChange={handleChange}/>
-        <ul>
-            {filteredProducts.map((product) => (<li key={product._id}>{product.name}</li>))}
-        </ul>
-    </div>
-);
+    return (
+        <div className='input-container'>
+            <input
+                className='search-b'
+                type="search"
+                value={name}
+                placeholder="Search..."
+                onChange={handleChange}/>
+        </div>
+    );
 }
 
 export default Searchbar;

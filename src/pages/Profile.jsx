@@ -19,7 +19,7 @@ const Profile = props => {
     uploadData.append("image", e.target.file[0]);// image goes to inside this array
 
 
-      axios.post(`${process.env.REACT_APP_API_URL}/api/upload`,uploadData)//> passing he image to back end with
+      axios.post(`${process.env.REACT_APP_API_URL}/api/upload`,uploadData)//> passing he image to back-end with
       .then(response => {
       setImage(response.addTrailers.image);
     })
@@ -50,7 +50,7 @@ const Profile = props => {
             <p className="field">Email</p>
             <p>{user?.email}</p>
             <button className="logOutButton"
-             onClick={logOutUser}>Log out</button>
+              onClick={logOutUser}>Log out</button>
         </div>}
 
         {!isLoggedIn && <div>

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useContext } from 'react';
 import './EditPage.css'
 
 
 const EditProduct = ({ product, onSave }) => {
-
     const [editedProduct, setEditedProduct] = useState({ ...product });
     const handleInputChange = (e) => {const { name, value } = e.target;
     setEditedProduct({ ...editedProduct, [name]: value });

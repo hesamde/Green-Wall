@@ -5,91 +5,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
-    border: 0;
 }
 .navigation a {
-        color: white;
+        color: #ffffff;;
         text-decoration: none;
 }
-.signin-navigation-link{
-    display: flex;
-    justify-content: center;
-}
-
-.signin-icon{
+.signin-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 38px;
-    fill: #ffffff;
+    align-items: center;
+    font-size: 30px;
+
 }
+
 .signin-text{
     font-size: 30px;
-    padding-right: 5px;
 }
-.divider{
-    font-size: 28px;
-    width: 5px;
-    padding-right: 10px;
+
+.signin-icon {
+    height: 40px;
+    fill: #ffffff;
+    margin-right: 15px;
+    margin-top:10px ;
 }
-.menu-m-de{
+.signin-divider{
+    font-size: 30px;
+
+    width: 10px;
+    margin-right: 10px;
+    margin-left: -16px;
+    width: 10px;
+}
+.sw{
     display: flex;
-    flex-direction: row;
-    padding-right: 8px;
-}
-
-@media (max-width: 500px) {
-
-.navigation  {
-    background-color: #202020;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    border: 0;
-}
-
-.signin-container{
     justify-content: center;
     align-items: center;
-    font-size: 5px;
-}
-.signin-icon{
-    width:35px;
-    margin-left: 55px;
-    margin-top: 10px;
-}
-.signin-text{
-    display: flex;
-    flex-direction: row;
-    font-size: 20px;
-    width: 5px;
-    padding-top: 8px;
-
-}
-.divider{
-    display: flex;
-    flex-direction: row;
-    font-size: 27px;
-    padding-top: 3px;
-}
-.menu-m-de{
-    display: flex;
-    flex-direction: row;
-    padding-right: 60px;
-}
-.homepage-user-name{
-    background-color: rebeccapurple;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    padding-top: 12px;
-}
-.nav-img{
-    width:200px ;
-}
 }
