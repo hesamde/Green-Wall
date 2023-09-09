@@ -16,30 +16,35 @@
     align-items: center;
     font-size: 30px;
 }
+
 .signin-text{
     font-size: 30px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
 }
 .signin-icon {
+    flex-direction: row;
+    align-items: center;
     height: 40px;
     fill: #ffffff;
-    margin-right: 20px;
-    margin-top:10px ;
+
 }
-.signin-divider{
-    font-size: 30px;
-    width: 10px;
+.divider{
     margin-right: 10px;
-    margin-left: -16px;
-    width: 10px;
-}
-.sw{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .signin-text:hover{
   color: orange;
 }
 .signin-icon:hover {
     fill: orange;
+}
+.l-text{
+    font-size: 30px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

@@ -1,96 +1,82 @@
-// import React from 'react'
-// import { useState, useContext } from 'react'
-// import axios from 'axios'
-// import {AuthContext} from "../context/auth.context"
-// import Layout from '../components/Layout';
-// import './Profile.css'
+import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import { AuthContext } from "../context/auth.context";
+import Layout from '../components/Layout';
+import { useParams } from "react-router-dom";
+import './Profile.css';
+
+
+const Profile = ({ profile }) => {
+    const [edirProfile, setEdirProfile] = useState({ ...profile });
+    const [image, setImage] = useState("");
+    const { user, setUser, isLoggedIn, logOutUser } = useContext(AuthContext);
+    const { id } = useParams();
 
 
 
+    const handleFileUpload = (e) => {
+    const uploadData = new FormData(); // Constructor
 
-// const Profile = props => {
-//   const [showUpload, setShowUpload] = useState(false);
-//   const [showSignup, setShowSignup] = useState(false);
-//   const [image, setImage] = useState("");
-//   const { user, setUser, isLoggedIn, logOutUser } = useContext(AuthContext);
+    uploadData.append("image", e.target.file[0]); // image goes to inside this array
 
-//   const handleFileUpload = (e) => {
-//   const uploadData = new FormData(); // Constractor
+    axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
+      .then(response => {
+        setImage(response.addTrailers.image);
+      })
+      .catch(err => console.log("Error while uploading the file:", err));
+  };
 
+    const handleInputChange = (e) => {const { name, value } = e.target;
+    setEdirProfile({ ...profile, [name ]: value });
+    };
 
-//     uploadData.append("image", e.target.file[0]);// image goes to inside this array
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.put(`${process.env.REACT_APP_API_URL}/user/profile/${id}`,profile)
 
+    };
 
+    useEffect(() => {
+        setEdirProfile({ ...profile });}, [profile]);
 
-//       axios.post(`${process.env.REACT_APP_API_URL}/api/upload`,uploadData)//> passing he image to back-end with
-//       .then(response => {
-//       setImage(response.addTrailers.image);
-//     })
-//       .catch(err => console.log("Error while uploading the file:", err));
-//     };
+        axios.put(`${process.env.REACT_APP_API_URL}/api/upload`, { ...user, image })
+        .then((response) => {
+          setUser(response.data.updateUser); // update state with image uploaded
+          setImage("");
+        })
+        .catch(err => console.log(err));
 
+    return (
+        <Layout>
+        <div className="container">
+            <form className="container flex"  onSubmit={handleSubmit}>
+                <div className="edit-page flex">
+                    <div className="text">
+                        <h1>Green Wall</h1>
+                        <p>Sell your Book around you. </p>
+                    </div>
+                    <div className="form">
+                        <h2 className='h2-text'>Edit Profile</h2>
+                        <hr />
+                        <div className=''>
+                        {user && user.image ?
+                        <img src={user.image} alt={"profile_image"} style={{ width: '50px', height: '50px', borderRadius: '75%' }} /> :
+                        <img src="assets/avatar.png" alt={"profile_image"} style={{ width: '50px', height: '50px', borderRadius: '75%' }} />}
+                        </div>
+                        <label htmlFor="name">Name:</label>
+                        <input type="text"name="productName"value={edirProfile.name}onChange={handleInputChange}/>
+                        <label htmlFor="price">Email:</label>
+                        <input type="email"name="email"value={edirProfile.email}onChange={handleInputChange}/>
+                        <hr />
+                        <div className ="button">
+                            <button className ="button" type="submit">Save Changes </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </Layout>
+    );
+};
 
-
-//       axios.put(`${process.env.REACT_APP_API_URL}/api/upload`, {...user, image})
-//       .then((response)=>{
-//         setUser(response.data.updateUser);// update state with image uploded
-//         setImage("")
-//       })
-//       .catch(err => console.log(err))
-//     }
-
-//     return (
-//         {isLoggedIn && <div style={{ width: 'inherit'}}>
-//             <h1>Profile</h1>
-//             <p className="field">Name</p>
-//             <p>{user?.name} </p>
-//             <p className="field">Email</p>
-//             <p>{user?.email}</p>
-//             <button className="logOutButton"
-//               onClick={logOutUser}>Log out</button>
-//         </div>}
-
-//         {!isLoggedIn && <div>
-//                 <h1>Green Wall Profile</h1>
-//                 <p>Create your Profile Now</p>
-//             </div>}
-
-//         {isLoggedIn &&
-//             (<div>
-//                 <div>
-//                     {user &&
-//                     user.image ?
-//                     <img src={user.image} alt={"profile_image"} style={{width: '50px', height: '50px', borderRadius: '75%'}} /> :
-//                     <img src="assets/avatar.png" alt={"profile_image"} style={{width: '50px', height: '50px', borderRadius: '75%'}} />
-//                     }
-
-// // return (
-// //   <Layout>
-// //     {showSignup && <div className='background-modal'></div>}
-// //     <form className="container flex" >
-// //       <div className="signin-page flex">
-// //         <div className="text">
-// //           <h1>Green Wall</h1>
-// //           <p>Sell your Book around you. </p>
-// //         </div>
-// //         <div className="form">
-// //           <h2>Personal Data</h2>
-// //           <label> Name </label>
-// //           <input name='name' type="name" placeholder="New Username"  />
-// //           <label> Email </label>
-// //           <input name='email' type="email" placeholder="New Email"/>
-// //           <hr />
-// //           <div className ="button">
-// //             <button type='submit' className="button" >confirm </button>
-// //           </div>
-// //         </div>
-// //       </div>
-// //     </form>
-// //   </Layout>
-// // );
-
-
-
-
-
-// export default Profile
+export default Profile;

@@ -24,6 +24,13 @@ const Signin = ({ email, password }) => {
     .catch((err) => console.error(err));
 };
 
+const Signp = ({ email, password }) => {
+  return api
+    .post("/auth/signin", { email, password })
+    .then((response) => response.data)
+    .catch((err) => console.error(err));
+};
+
 const verifyToken = (storedToken) => {
   return api
     .get("/auth/verify", {

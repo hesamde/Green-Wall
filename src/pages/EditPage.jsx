@@ -8,9 +8,6 @@ const EditProduct = ({ product }) => {
     const [editedProduct, setEditedProduct] = useState({ ...product });
     const { id } = useParams();
 
-    // const onSave  = () => axios.get(`${process.env.REACT_APP_API_URL}/product/details/${id}`)
-    // }
-
     const handleInputChange = (e) => {const { name, value } = e.target;
     setEditedProduct({ ...editedProduct, [name]: value });
     };
