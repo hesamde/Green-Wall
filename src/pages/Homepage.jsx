@@ -20,12 +20,12 @@ const HomePage =  () => {
         <ul className="line-homepage"></ul>
         <div className="product-container ">
             <div className="product-box">
-            {allProducts && allProducts.length > 0 && allProducts.map((product, index) => (
+                {allProducts && allProducts.length > 0 && allProducts.map((product, index) => (
                 <Link to={`product/${product._id}`} key={index} style={{ textDecoration: "none" }}>
                 <div className="product">
                     <img src={product.photo} alt="Product" />
-                    <span>{product.price}</span>
-                    <h3>{product.name}</h3>
+                    <span>€{product.price}</span>
+                    <h3>{product.productName}</h3>
                     <p>{product.location}</p>
                 </div>
                 </Link>

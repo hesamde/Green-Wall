@@ -6,8 +6,8 @@
     align-items: center;
 }
 .navigation a {
-        color: #ffffff;;
-        text-decoration: none;
+    color: #ffffff;;
+    text-decoration: none;
 }
 .signin-container {
     display: flex;
@@ -27,7 +27,6 @@
 }
 .signin-divider{
     font-size: 30px;
-
     width: 10px;
     margin-right: 10px;
     margin-left: -16px;

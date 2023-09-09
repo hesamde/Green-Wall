@@ -5,7 +5,7 @@ import Homepage from './pages/Homepage';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import CreateProduct from './pages/CreateProduct';
-import Profile from './pages/Profile'
+// import Profile from './pages/Profile'
 import EditPage  from './pages/EditPage'
 import Product from './pages/Product';
 
@@ -18,9 +18,10 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/createProduct" element={<CreateProduct />} />
-          <Route path="/profile" element={<Profile/>}/>
+          {/* <Route path="/profile" element={<Profile/>}/> */}
           <Route path="/product/:id" element={<Product />} />
-          <Route path="/editpage"element={<EditPage/>}/>
+          <Route path="/editpage/:id"element={<EditPage/>}/>
+          <Route path="/delet/:id"element={<EditPage/>}/>
         </Routes>
     </div>
   );

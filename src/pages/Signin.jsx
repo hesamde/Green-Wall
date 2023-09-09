@@ -38,7 +38,6 @@ const Signin = () => {
     } )
     }
 
-
   return (
     <Layout>
       {showSignup && <div className='background-modal'></div>}

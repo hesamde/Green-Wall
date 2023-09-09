@@ -6,10 +6,11 @@ import './CreateProduct.css';
 
 const CreateProduct = () => {
 
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState("€");
     const [productName, setProductName] = useState("");
     const [location, setLocation] = useState("");
     const [image, setImage] = useState(null);
+
 
     const navigate = useNavigate();
 
@@ -56,7 +57,7 @@ const CreateProduct = () => {
             <input
               type="number"
               name="price"
-              value={price}
+              value={price }
               placeholder="Enter product price"
               required={true}
               onChange={handlePrice}
@@ -81,7 +82,6 @@ const CreateProduct = () => {
             <label>Photo</label>
             <input
               type="file"
-              // accept="image/png, image/jpeg"
               name="image"
               placeholder="Enter photo"
               onChange={handleImageChange}
