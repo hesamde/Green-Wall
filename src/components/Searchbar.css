@@ -16,14 +16,28 @@
         margin-top: 60px;
         width: 100%;
         padding: 10px;
+
     }
 
     .search-b {
         display: block;
-        width: 100%;
-        margin-right: 200px;
-        margin-left: 200px;
-        padding: 0;
+        width: calc(100% - 260px); /* Adjusted width */
+        margin-right: 180px;
+        margin-left: 8px;
+        padding: 10px; /* Added padding for spacing */
+        border: none; /* Removed border */
+        border-radius: 25px; /* Added border-radius for rounded corners */
+        background-color: #f1f1f1; /* Added background color */
+        outline: none; /* Removed the outline on focus */
+        font-size: 30px; /* Adjusted font size */
+    }
+
+    .search-b::placeholder {
+        color: #999; /* Adjusted placeholder color */
+    }
+
+    .search-b:focus {
+        background-color: #fff; /* Change background color on focus if needed */
     }
 
 }
@@ -34,18 +48,30 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 60px;
         width: 100%;
         padding: 10px;
     }
 
     .search-b {
         display: block;
-        width: 100%;
-        margin-right: 180px;
+        width: calc(100% - 50px); /* Adjusted width */
+        margin-right:60px;
         margin-left: 80px;
-        padding: 0;
+        border: none; /* Removed border */
+        border-radius: 25px; /* Added border-radius for rounded corners */
+        background-color: #f1f1f1; /* Added background color */
+        outline: none; /* Removed the outline on focus */
+        font-size: 16px; /* Adjusted font size */
     }
+
+    .search-b::placeholder {
+        color: #999; /* Adjusted placeholder color */
+    }
+
+    .search-b:focus {
+        background-color: #fff; /* Change background color on focus if needed */
+    }
+
     }
 
 

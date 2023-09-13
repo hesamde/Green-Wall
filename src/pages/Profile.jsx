@@ -2,81 +2,95 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from "../context/auth.context";
 import Layout from '../components/Layout';
-import { useParams } from "react-router-dom";
+
 import './Profile.css';
 
 
 const Profile = ({ profile }) => {
-    const [edirProfile, setEdirProfile] = useState({ ...profile });
+    const [editProfile, setEditProfile] = useState({ ...profile });
     const [image, setImage] = useState("");
+    const [showUpload, setShowUpload] = useState(false);
     const { user, setUser, isLoggedIn, logOutUser } = useContext(AuthContext);
-    const { id } = useParams();
+    const id = user?._id ;
+    console.log(user);
 
 
+//photo update syntax
+const handleFileUpload = (e) => {
 
-    const handleFileUpload = (e) => {
-    const uploadData = new FormData(); // Constructor
-
-    uploadData.append("image", e.target.file[0]); // image goes to inside this array
+    const uploadData = new FormData();
+    uploadData.append("image", e.target.files[0]);
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
-      .then(response => {
-        setImage(response.addTrailers.image);
-      })
-      .catch(err => console.log("Error while uploading the file:", err));
-  };
+    .then(response => {
+        setImage(response.data.image);
+    })
+    .catch(err => console.log("Error while uploading the file:", err));
+};
 
-    const handleInputChange = (e) => {const { name, value } = e.target;
-    setEdirProfile({ ...profile, [name ]: value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.put(`${process.env.REACT_APP_API_URL}/user/profile/${id}`,profile)
+const handleInputChange = (e) => {const { name, value } = e.target;
+    setEditProfile({ ...editProfile, [name ]: value });
 
     };
 
     useEffect(() => {
-        setEdirProfile({ ...profile });}, [profile]);
+    setEditProfile({ ...profile });}, [profile]);
 
-        axios.put(`${process.env.REACT_APP_API_URL}/api/upload`, { ...user, image })
+    const handleSubmit = (e) => {
+        axios.put(`${process.env.REACT_APP_API_URL}/api/users`,{id ,editProfile , image })
         .then((response) => {
-          setUser(response.data.updateUser); // update state with image uploaded
-          setImage("");
+            console.log(response);
+            setUser(response.data.updateUser);
+            setImage(response.data.updateUser.image);
         })
         .catch(err => console.log(err));
-
-    return (
-        <Layout>
+    };
+return (
+    <Layout>
         <div className="container">
             <form className="container flex"  onSubmit={handleSubmit}>
                 <div className="edit-page flex">
-                    <div className="text">
-                        <h1>Green Wall</h1>
-                        <p>Sell your Book around you. </p>
-                    </div>
-                    <div className="form">
-                        <h2 className='h2-text'>Edit Profile</h2>
-                        <hr />
-                        <div className=''>
-                        {user && user.image ?
-                        <img src={user.image} alt={"profile_image"} style={{ width: '50px', height: '50px', borderRadius: '75%' }} /> :
-                        <img src="assets/avatar.png" alt={"profile_image"} style={{ width: '50px', height: '50px', borderRadius: '75%' }} />}
-                        </div>
-                        <label htmlFor="name">Name:</label>
-                        <input type="text"name="productName"value={edirProfile.name}onChange={handleInputChange}/>
+                <div className="text">
+                    <h1>Green Wall</h1>
+                    <p>Sell your Book around you. </p>
+                </div>
+                {isLoggedIn &&
+                (<div className="form">
+                    <h2 className='h2-text'>Edit Profile</h2>
+                    <hr />
+                    <div >
+                    {image ?
+                        <img className='h2-text' src={image} alt={"profile_image"} /> :
+                        <img className='imgHolder' src="https://res.cloudinary.com/dfxrir8j2/image/upload/v1694302451/green-wall-project/jshb8lxddveelreczuf1.webp" alt={"profile_image"} style={{ width: '50px', height: '50px', borderRadius: '75%'  }} />}
+                        {!showUpload &&
+                    <button className='button-form' onClick={()=> setShowUpload(!showUpload)}>Edit Photo</button>
+                    }
+                    <div>
+                {showUpload &&
+                        (<form onSubmit={handleSubmit} >
+                            <input  onChange={(e) => handleFileUpload(e)} type="file"  />
+                            <button className='button-form' onClick={()=> setShowUpload(!showUpload)}>Cancel Edit</button>
+                            <button className='button-form' type="submit">Save new profile image</button>
+                            </form>)
+                    }
+                </div>
+            </div>
+                    <label htmlFor="name">Name:</label>
+                        <input type="text" name="name"value={editProfile.name}onChange={handleInputChange}/>
                         <label htmlFor="price">Email:</label>
-                        <input type="email"name="email"value={edirProfile.email}onChange={handleInputChange}/>
+                        <input type="email"name="email"value={editProfile.email}onChange={handleInputChange}/>
                         <hr />
                         <div className ="button">
-                            <button className ="button" type="submit">Save Changes </button>
+                            <button  className ="button" type="submit">Save Changes  </button>
                         </div>
                     </div>
+                    )}
                 </div>
             </form>
         </div>
-        </Layout>
+    </Layout>
     );
 };
 
-export default Profile;
+
+export default Profile

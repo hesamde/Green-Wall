@@ -15,7 +15,7 @@ const Navigation = () => {
         <div className="signin-container">
         {isLoggedIn ? (
             <div>
-            <Link to={"/profile"}>welcome {userName}</Link>
+            <Link to={"/profile"} className='signin-out'>welcome {userName} </Link>
             <Link onClick={logOutUser} className='signin-text'>Logout</Link>
             </div>
         ) : (

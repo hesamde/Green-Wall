@@ -13,6 +13,17 @@ const Signup = ({ onClose }) => {
     const [errorMsg,setErrorMsg] = useState("")
     const navigate = useNavigate()
 
+// const PasswordInput = ({ passwordRequirements }) => {
+//     const [password, setPassword] = useState("");
+
+//     const handleP = (event) => {
+//         setPassword(event.target.value);
+//     };
+
+//     const isPasswordValid = passwordRequirements.minLength <= password.length &&
+//         password.length <= passwordRequirements.maxLength &&
+//         password.match(passwordRequirements.pattern);
+
     const handleChange = (e) => { //event to use to get input as property
         const name = e.target.name;
         const value = e.target.value;//get the input as value
@@ -60,6 +71,10 @@ const Signup = ({ onClose }) => {
                     <input
                         type="password"
                         name="password"
+                        // inputmode="password"
+                        // pattern="[a-zA-Z]+"
+                        // minlength="8"
+                        // maxlength="16"
                         value={user.password}
                         onChange={handleChange}
                         placeholder="Create Password"

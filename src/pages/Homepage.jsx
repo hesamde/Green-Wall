@@ -16,7 +16,7 @@ const HomePage =  () => {
     return (
         <Layout>
         <Searchbar setAllProducts={setAllProducts} />
-        {isLoggedIn && <Link to="/createproduct"><button>Creat Product</button></Link>}
+        {isLoggedIn && <Link to="/createproduct"><button className='cp-button'>Creat Product</button></Link>}
         <ul className="line-homepage"></ul>
         <div className="product-container ">
             <div className="product-box">
