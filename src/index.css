@@ -1,98 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: white;
+  font-family: Arial, sans-serif;
+  background-color: white;
 }
 
 .content-container {
-    display: flex;
-    justify-content: center;
-    /* width: 1000px; */
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 200px) {
-    .content-container {
-        width: 200px;
-
-    }
+  .content-container {
+    width: 200px;
+  }
 }
 
 @media screen and (min-width: 300px) {
-    .content-container {
-        width: 300px;
-
-    }
+  .content-container {
+    width: 300px;
+  }
 }
 
 @media screen and (min-width: 500px) {
-    .content-container {
-        width: 700px;
-
-    }
+  .content-container {
+    width: 700px;
+  }
 }
 
 @media screen and (min-width: 800px) {
-    .content-container {
-        width: 1000px;
-    }
+  .content-container {
+    width: 1000px;
+  }
 }
 
 .primary-button {
-    background-color: #b5e941;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 14px;
+  background-color: #b5e941;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .secondary-button {
-    background-color: #E86A0B;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 14px;
+  background-color: #e86a0b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .Third-button {
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #b5e941;
-    border-radius: 6px;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    font-size: 1.063rem;
-    font-weight: 600;
-    transition: 0.2s ease;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #b5e941;
+  border-radius: 6px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.063rem;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 .Forth-button {
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #E86A0B;
-    border-radius: 6px;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    font-size: 1.063rem;
-    font-weight: 600;
-    transition: 0.2s ease;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #e86a0b;
+  border-radius: 6px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.063rem;
+  font-weight: 600;
+  transition: 0.2s ease;
 }

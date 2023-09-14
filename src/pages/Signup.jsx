@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import authMethods from "../service/auth.service";
 import "./Signup.css";
-import PasswordChecklist from "react-password-checklist";
+// import PasswordChecklist from "react-password-checklist";
 
 const Signup = ({ onClose }) => {
   const [user, setUser] = useState({ name: "", email: "", password: "" });

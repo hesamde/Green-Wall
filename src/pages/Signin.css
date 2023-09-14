@@ -1,160 +1,158 @@
-
 .flex {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .container {
-    padding: 0 15px;
-    min-height: 100vh;
-    justify-content: center;
-    background: #f0f2f5;
+  padding: 0 15px;
+  min-height: 100vh;
+  justify-content: center;
+  background: #f0f2f5;
 }
 
 .signin-page {
-    justify-content: space-between;
-    max-width: 1000px;
-    width: 100%;
-    margin-top: 150px;
-    align-content:center;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+  margin-top: 150px;
+  align-content: center;
 }
 
 .signin-page .text {
-    margin-bottom: 90px;
-    padding-left: -10px;
+  margin-bottom: 90px;
+  padding-left: -10px;
 }
 
 .signin-page h1 {
-    color: #b5e941;;
-    font-size: 4rem;
-    margin-bottom: 10px;
+  color: #b5e941;
+  font-size: 4rem;
+  margin-bottom: 10px;
 }
 
 .signin-page p {
-    font-size: 1.75rem;
-    white-space: nowrap;
+  font-size: 1.75rem;
+  white-space: nowrap;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
-    0 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 200%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 200%;
 }
 
 .form input {
-    height: 55px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-    padding: 0 14px;
+  height: 55px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  padding: 0 14px;
 }
 
 .form input:focus {
-    outline: none;
-    border-color: #b5e941;;
+  outline: none;
+  border-color: #b5e941;
 }
 
 ::placeholder {
-    color: #777;
-    font-size: 1.063rem;
+  color: #777;
+  font-size: 1.063rem;
 }
 
 .link {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
 }
 
 .link .login {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background: #b5e941;;
-    padding: 15px 0;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: 600;
-    transition: 0.2s ease;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #b5e941;
+  padding: 15px 0;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
 .link .login:hover {
-    background: #b5e941;
+  background: #b5e941;
 }
 
 .form a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .link .forgot {
-    color: #b5e941;
-    font-size: 0.875rem;
+  color: #b5e941;
+  font-size: 0.875rem;
 }
 
 .link .forgot:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .hr {
-    border: none;
-    height: 1px;
-    background-color: #060606;
-    margin-bottom: 20px;
-    margin-top: 20px;
+  border: none;
+  height: 1px;
+  background-color: #060606;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .button {
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #E86A0B;
-    border-radius: 6px;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    font-size: 1.063rem;
-    font-weight: 600;
-    transition: 0.2s ease;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #e86a0b;
+  border-radius: 6px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.063rem;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
 .gtsa {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 900px) {
-    .signin-page {
-        flex-direction: column;
-        text-align: center;
-    }
+  .signin-page {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .signin-page .text {
-        margin-bottom: 30px;
-    }
+  .signin-page .text {
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 460px) {
-    .signin-page h1 {
-        font-size: 3.5rem;
-    }
+  .signin-page h1 {
+    font-size: 3.5rem;
+  }
 
-    .signin-page p {
-        font-size: 1.3rem;
-    }
+  .signin-page p {
+    font-size: 1.3rem;
+  }
 
-    .form {
-        padding: 15px;
-    }
+  .form {
+    padding: 15px;
+  }
 }

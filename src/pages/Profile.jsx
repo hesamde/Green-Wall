@@ -63,7 +63,7 @@ const Profile = ({ profile }) => {
               <div className="form">
                 <h2 className="h2-text">Edit Profile</h2>
                 <hr />
-                <div>
+                <div className="img-container">
                   {image ? (
                     <img
                       className="h2-text"
