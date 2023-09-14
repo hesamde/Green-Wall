@@ -1,70 +1,48 @@
-
-@media (min-width: 500px) {
-    .input-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 60px;
-        width: 100%;
-        padding: 10px;
-    }
-
 .input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-    width: 100%;
-    padding: 10px;
-}
-.search-b {
-    display: block;
-    width: calc(100% - 260px);
-    margin-right: 180px;
-    margin-left: 200px;
-    padding: 10px;
-    border: none;
-    border-radius: 25px;
-    background-color: #f1f1f1;
-    outline: none;
-    font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px 20px 0px;
+  padding: 10px;
 }
 
-.search-b::placeholder {
-    color: #999;
+.cp-button {
+  text-align: center;
+  background-color: #e86a0b;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  transition: 0.2s ease;
+  min-height: 32px;
+  min-width: 120px;
+  padding: 0 10px;
+  margin-left: 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.search-input {
+  display: block;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: #f1f1f1;
+  outline: none;
+  font-size: 24px;
+  max-width: 200px;
 }
 
-@media (max-width: 500px) {
+.search-input::placeholder {
+  color: #999;
+}
 
-    .input-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 10px;
-    }
-
-    .search-b {
-        display: block;
-        width: calc(100% - 50px);
-        margin-right:60px;
-        margin-left: 80px;
-        border: none;
-        border-radius: 25px;
-        background-color: #f1f1f1;
-        outline: none;
-        font-size: 16px;
-    }
-
-    .search-b::placeholder {
-        color: #999;
-    }
-
-    .search-b:focus {
-        background-color: #fff;
-    }
-
-    }
-
-
+@media only screen and (max-width: 360px) {
+  .input-container {
+    background-color: green;
+  }
+}

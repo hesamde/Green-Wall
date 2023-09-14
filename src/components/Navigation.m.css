@@ -1,61 +1,70 @@
 .navigation {
-    background-color: #202020;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #202020;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .navigation a {
-    color: #ffffff;;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 .signin-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
 
-.signin-text{
-    font-size: 30px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.signin-text {
+  font-size: 25px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .signin-icon {
-    flex-direction: row;
-    align-items: center;
-    height: 40px;
-    fill: #ffffff;
-
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  fill: #ffffff;
 }
-.divider{
-    margin-right: 10px;
+.divider {
+  margin-right: 10px;
 }
-.signin-text:hover{
-    color: orange;
+.signin-text:hover {
+  color: orange;
 }
 .signin-icon:hover {
-    fill: orange;
+  fill: orange;
 }
-.l-text{
-    font-size: 30px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.l-text {
+  font-size: 30px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.signin-out{
-    font-size: 30px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.signin-out {
+  font-size: 22px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.signin-out:hover{
-    color: #9edb1a;
+.signin-out:hover {
+  color: #9edb1a;
+}
+.nav-img {
+  width: auto;
+  height: auto;
+}
+@media only screen and (min-width: 320px) {
+  .nav-img {
+    width: 210px;
+    height: auto;
+  }
 }
