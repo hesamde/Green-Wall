@@ -35,6 +35,8 @@ const Profile = ({ profile }) => {
   }, [profile]);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+
     axios
       .put(`${process.env.REACT_APP_API_URL}/api/users`, {
         id,
@@ -42,9 +44,9 @@ const Profile = ({ profile }) => {
         image,
       })
       .then((response) => {
-        console.log(response);
-        setUser(response.data.updateUser);
-        setImage(response.data.updateUser.image);
+        const { name, email } = response.data.updatedUser;
+        setUser({ ...user, name, email });
+        setImage(response.data.updatedUser.image);
       })
       .catch((err) => console.log(err));
   };
@@ -125,9 +127,8 @@ const Profile = ({ profile }) => {
                 />
                 <hr />
                 <div className="button">
-                  {" "}
                   <button className="button" type="submit">
-                    Save Changes{" "}
+                    Save Changes
                   </button>
                 </div>
               </div>
