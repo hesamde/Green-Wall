@@ -1,66 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-
-    .flex {
+.flex {
     display: flex;
     align-items: center;
     }
-    .container {
+.container {
     padding: 0 15px;
     min-height: 100vh;
     justify-content: center;
     background: #f0f2f5;
-    }
-    .edit-page {
+}
+.edit-page {
     justify-content: space-between;
     max-width: 1000px;
     width: 100%;
     margin-top: 150px;
     align-content:center ;
-    }
+}
 
-    .edit-page .text {
+.edit-page .text {
     margin-bottom: 90px;
     padding-left: -10px;
-    }
+}
 
-    .edit-page h1 {
+.edit-page h1 {
     color: #b5e941;;
     font-size: 4rem;
     margin-bottom: 10px;
-    }
+}
 
-    .edit-page p {
+.edit-page p {
     font-size: 1.75rem;
     white-space: nowrap;
-    }
+}
 
-    .button-form{
-        margin-top: 20px;
-        text-align: center;
-        margin-bottom: 20px;
-        background-color: #9edb1a;
-        border-radius: 6px;
-        display: inline-block;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        color: #fff;
-        font-size: 1.063rem;
-        font-weight: 600;
-        transition: 0.2s ease;
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    .h2-text{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        color: #9edb1a;
-    }
+.h2-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #9edb1a;
+}
 .imgHolder{
     justify-content: center;
+}
+.Third-button{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #b5e941;
+    border-radius: 6px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.063rem;
+    font-weight: 600;
+    transition: 0.2s ease;
 }
 
     @media (max-width: 900px) {

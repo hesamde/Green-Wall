@@ -1,93 +1,110 @@
-import React, {useState} from 'react';
-import { useNavigate , Link } from 'react-router-dom';
-import authMethods from "../service/auth.service"
-import './Signup.css';
-
-
-
-
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import authMethods from "../service/auth.service";
+import "./Signup.css";
+import PasswordChecklist from "react-password-checklist";
 
 const Signup = ({ onClose }) => {
-    const closeModal = () => {onClose();};
-    const [user, setUser] = useState({name : '', email: '', password: ''});
-    const [errorMsg,setErrorMsg] = useState("")
-    const navigate = useNavigate()
+  const [user, setUser] = useState({ name: "", email: "", password: "" });
+  const [errorMsg, setErrorMsg] = useState("");
+  //   const [password, setPassword] = useState("");
+  //   const [matchPassword, setMatchPassword] = useState("");
+  const navigate = useNavigate();
 
-// const PasswordInput = ({ passwordRequirements }) => {
-//     const [password, setPassword] = useState("");
+  //   const handleChangePass = (e) => {
+  //     // event to use to get input as property
+  //     const name = e.target.name;
+  //     const value = e.target.value; //get the input as value
 
-//     const handleP = (event) => {
-//         setPassword(event.target.value);
-//     };
+  //     // update the state variable
+  //     if (name === "matchPassword") {
+  //       setMatchPassword(value);
+  //     } else if (name === "password") {
+  //       setPassword(value);
+  //       const checklist = document.querySelector(".password-checklist");
+  //       checklist.update();
+  //     }
+  //   };
 
-//     const isPasswordValid = passwordRequirements.minLength <= password.length &&
-//         password.length <= passwordRequirements.maxLength &&
-//         password.match(passwordRequirements.pattern);
+  const handleChange = (e) => {
+    //event to use to get input as property
+    const name = e.target.name;
+    const value = e.target.value; //get the input as value
 
-    const handleChange = (e) => { //event to use to get input as property
-        const name = e.target.name;
-        const value = e.target.value;//get the input as value
+    setUser((user) => ({ ...user, [name]: value })); // user is call back function  // ...user is generate as exact copy that is currently is
+  }; // by useing [ name] stating that the name is the property which is going to gave the property name and the value ti assign to it.
 
-        setUser(user => ({...user, [name] : value})) // user is call back function  // ...user is generate as exact copy that is currently is
-    } // by useing [ name] stating that the name is the property which is going to gave the property name and the value ti assign to it.
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    authMethods
+      .Signup(user)
+      .then((data) => {
+        navigate("/");
+      })
+      .catch((err) => {
+        setErrorMsg(err.response.data.message);
+        console.info(err);
+      });
+  };
 
-        authMethods.Signup(user)
-            .then ((data) => {
-                navigate('/')
-            })
-            .catch(err => {
-                setErrorMsg(err.response.data.message)
-                console.info(err)
-            })
-    }
-
-    return (
-        <div className="modal">
-                <form onSubmit={handleSubmit} className='form'>
-                <span className="close" onClick={closeModal}>&times;</span>
-                    <h2>Creat your account</h2>
-                    {errorMsg !== "" && <p>{errorMsg}</p>}
-                    <br />
-                    <label>Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={user.name}
-                        onChange={handleChange}
-                        placeholder="your name"
-                        required />
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={user.email}
-                        onChange={handleChange}
-                        placeholder="Email Address"
-                        required />
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        // inputmode="password"
-                        // pattern="[a-zA-Z]+"
-                        // minlength="8"
-                        // maxlength="16"
-                        value={user.password}
-                        onChange={handleChange}
-                        placeholder="Create Password"
-                        required />
-                    <hr />
-                    <div className='signup-button'>
-                    <button type="submit" className="signup-button">Sign Up</button>
-                    </div>
-                    <br />
-                    <Link to="/signin">Already have an account? Sign in.</Link>
-                </form>
+  return (
+    <div className="background-modal">
+      <form onSubmit={handleSubmit} className="container flex">
+        <div className="signup-page flex">
+          <div className="text">
+            <h1>Green Wall</h1>
+            <p>Sell your Book around you. </p>
+          </div>
+          <div className="form">
+            <h2 className="gtsa">Creat your account</h2>
+            <hr />
+            {errorMsg !== "" && <p>{errorMsg}</p>}
+            <br />
+            <input
+              type="text"
+              name="name"
+              value={user.name}
+              onChange={handleChange}
+              placeholder="Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              placeholder="Password"
+              required
+            />
+            {/* <PasswordChecklist
+              rules={["capital", "match", "specialChar", "minLength", "number"]}
+              minLength={8}
+              value={password}
+              valueAgain={matchPassword}
+              className="password-checklist"
+            /> */}
+            <div className="button">
+              <button type="submit" className="button">
+                Sign Up
+                <Link to="/signin"></Link>
+              </button>
+            </div>
+            <br />
+            <Link to="/signin">Already have an account? Sign in.</Link>
+          </div>
         </div>
-    );
+      </form>
+    </div>
+  );
 };
 
 export default Signup;
