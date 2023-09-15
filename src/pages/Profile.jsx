@@ -18,7 +18,7 @@ const Profile = ({ profile }) => {
     uploadData.append("image", e.target.files[0]);
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
+      .post(`https://green-wall.netlify.app/api/upload`, uploadData)
       .then((response) => {
         setImage(response.data.image);
       })
@@ -38,7 +38,7 @@ const Profile = ({ profile }) => {
     e.preventDefault();
 
     axios
-      .put(`${process.env.REACT_APP_API_URL}/api/users`, {
+      .put(`https://green-wall.netlify.app/api/users`, {
         id,
         editProfile,
         image,

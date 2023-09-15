@@ -18,7 +18,7 @@ const EditProduct = ({ product }) => {
     e.preventDefault();
     navigate("/");
     axios.put(
-      `${process.env.REACT_APP_API_URL}/product/edit/${id}`,
+      `https://green-wall.netlify.app/product/edit/${id}`,
       editedProduct
     );
   };
