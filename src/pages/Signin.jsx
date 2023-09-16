@@ -72,7 +72,6 @@ const Signin = () => {
           </div>
         </div>
       </form>
-      && <Signup />
     </Layout>
   );
 };
