@@ -18,7 +18,7 @@ const EditProduct = ({ product }) => {
     e.preventDefault();
     navigate("/");
     axios.put(
-      `https://green-wall.netlify.app/product/edit/${id}`,
+      `https://green-wall.onrender.com/product/edit/${id}`,
       editedProduct
     );
   };

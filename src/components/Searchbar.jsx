@@ -11,8 +11,7 @@ const Searchbar = ({ setAllProducts }) => {
   useEffect(() => {
     console.log("useEffect");
     axios
-      .get(`https://green-wall.netlify.app/product/name/${name}`)
-
+      .get(`https://green-wall.onrender.com/product/name/${name}`)
       .then((response) => {
         console.log(response.data);
         setAllProducts(response.data);

@@ -17,7 +17,7 @@ const Product = () => {
 
   const getAllComments = () => {
     axios
-      .get(`https://green-wall.netlify.app/comment/product/${id}`)
+      .get(`https://green-wall.onrender.com/comment/product/${id}`)
       .then((response) => {
         setAllComments(response.data);
       })
@@ -27,7 +27,7 @@ const Product = () => {
   useEffect(() => {
     getAllComments();
     axios
-      .get(`https://green-wall.netlify.app/product/details/${id}`)
+      .get(`https://green-wall.onrender.com/product/details/${id}`)
       .then((response) => {
         setPrice(response.data.price);
         setName(response.data.productName);
@@ -38,7 +38,7 @@ const Product = () => {
   }, [id]);
 
   const handleDelete = () => {
-    axios.delete(`https://green-wall.netlify.app/product/delete/${id}`);
+    axios.delete(`https://green-wall.onrender.com/product/delete/${id}`);
     navigate("/");
   };
 
