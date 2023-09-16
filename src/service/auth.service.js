@@ -2,16 +2,9 @@ import axios from "axios";
 
 const api = axios.create({
   // make sure you use PORT = 5005 (the port where our server is running)
-  baseURL: "http://localhost:5005",
+  baseURL: "https://green-wall.onrender.com",
   // withCredentials: true // => you might need this option if using cookies and sessions
 });
-
-// const Signup = ({ name, email, password }) => {
-//   return api
-//     .post("/auth/signup", { name, email, password })
-//     .then((response) => response.data)
-//     .catch((err) => console.error(err));
-// };
 
 const Signup = async ({ name, email, password }) => {
   return await api.post("/auth/signup", { name, email, password });

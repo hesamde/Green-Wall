@@ -29,11 +29,15 @@ const CreateProduct = () => {
       formData.append("location", location);
       formData.append("image", image);
 
-      await axios.post(`http://localhost:5005/product/create`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        `https://green-wall.onrender.com/product/create`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       setPrice("");
       setProductName("");
