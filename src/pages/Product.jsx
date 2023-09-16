@@ -44,7 +44,7 @@ const Product = () => {
 
   const addCommentClickHandler = async () => {
     if (comment !== "") {
-      await axios.post(`http://localhost:5005/comment/create`, {
+      await axios.post(`https://green-wall.onrender.com/comment/create`, {
         product: id,
         user: user._id,
         comment,
