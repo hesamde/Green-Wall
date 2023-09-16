@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import authMethods from "../service/auth.service";
 import Layout from "../components/Layout";
-import Signup from "./Signup";
 import "./Signin.css";
 
 const Signin = () => {

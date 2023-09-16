@@ -40,7 +40,17 @@ const Signup = ({ onClose }) => {
     authMethods
       .Signup(user)
       .then((data) => {
-        navigate("/");
+        // authMethods
+        // .Signin(user)
+        // .then((tokenObject) => {
+        //   storeToken(tokenObject.authToken);
+        //   authenticateUser();
+        //   navigate("/");
+        // })
+        // .catch((err) => {
+        //   console.log(err);
+        // });
+        navigate("/signin");
       })
       .catch((err) => {
         setErrorMsg(err.response.data.message);
