@@ -35,7 +35,7 @@ const Searchbar = ({ setAllProducts }) => {
       />
       {isLoggedIn && (
         <Link to="/createproduct" className="cp-button">
-          Create Product
+          Add Book
         </Link>
       )}
     </div>
