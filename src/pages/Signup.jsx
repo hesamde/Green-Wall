@@ -68,7 +68,6 @@ const Signup = ({ onClose }) => {
           </div>
           <div className="form">
             <h2 className="gtsa">Creat your account</h2>
-            <hr />
             {errorMsg !== "" && <p>{errorMsg}</p>}
             <br />
             <input
