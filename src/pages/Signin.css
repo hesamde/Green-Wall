@@ -123,13 +123,15 @@
   font-size: 1.063rem;
   font-weight: 600;
   transition: 0.2s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .gtsa {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-bottom: 50px;
+  padding-bottom: 0px !important;
 }
 
 @media (max-width: 900px) {

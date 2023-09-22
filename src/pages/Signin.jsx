@@ -42,6 +42,7 @@ const Signin = () => {
           </div>
           <div className="form">
             <h2 className="gtsa">Good to see you again</h2>
+            <hr className="hr" />
             <label></label>
             <input
               name="email"
@@ -62,7 +63,6 @@ const Signin = () => {
                 Login
               </button>
             </div>
-            <hr />
             <div className="button">
               <Link to="/signup" className="button">
                 Create new account

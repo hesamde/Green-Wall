@@ -123,6 +123,7 @@
   font-size: 1.063rem;
   font-weight: 600;
   transition: 0.2s ease;
+  z-index: 1;
 }
 
 .gtsa {
