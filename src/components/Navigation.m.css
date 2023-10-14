@@ -36,10 +36,10 @@
   margin-right: 10px;
 }
 .signin-text:hover {
-  color: orange;
+  color: #9edb1a;
 }
 .signin-icon:hover {
-  fill: orange;
+  fill: #9edb1a;
 }
 .l-text {
   font-size: 30px;
