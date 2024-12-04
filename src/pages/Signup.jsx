@@ -7,6 +7,7 @@ import "./Signup.css";
 const Signup = ({ onClose }) => {
   const [user, setUser] = useState({ name: "", email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
+
   //   const [password, setPassword] = useState("");
   //   const [matchPassword, setMatchPassword] = useState("");
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Signup = ({ onClose }) => {
   //   };
 
   const handleChange = (e) => {
+    console.log("handleChange");
     //event to use to get input as property
     const name = e.target.name;
     const value = e.target.value; //get the input as value
@@ -35,6 +37,7 @@ const Signup = ({ onClose }) => {
   }; // by useing [ name] stating that the name is the property which is going to gave the property name and the value ti assign to it.
 
   const handleSubmit = (e) => {
+    console.log("handleSubmit");
     e.preventDefault();
 
     authMethods
@@ -50,6 +53,7 @@ const Signup = ({ onClose }) => {
         // .catch((err) => {
         //   console.log(err);
         // });
+        console.log("data", data);
         navigate("/signin");
       })
       .catch((err) => {
@@ -104,7 +108,6 @@ const Signup = ({ onClose }) => {
             <div className="button">
               <button type="submit" className="button">
                 Sign Up
-                <Link to="/signin"></Link>
               </button>
             </div>
             <br />
