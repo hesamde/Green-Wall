@@ -1,16 +1,12 @@
-import React, { useEffect, useState , useContext } from 'react';
-import { Link } from 'react-router-dom';
-import Layout from '../components/Layout';
+import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
 import Searchbar from "../components/Searchbar";
 
 import "./Homepage.css";
 
 const HomePage = () => {
   const [allProducts, setAllProducts] = useState([]);
-
-  useEffect(() => {
-    console.log(allProducts);
-  }, [allProducts]);
 
   return (
     <Layout>
@@ -32,6 +28,8 @@ const HomePage = () => {
                 <p>{product.location}</p>
               </Link>
             ))}
+          {!allProducts ||
+            (allProducts.length == 0 && <div>Loading products...</div>)}
         </div>
       </div>
     </Layout>
